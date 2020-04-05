@@ -1,22 +1,50 @@
 import React, {useEffect, useState} from 'react';
 import map from './assets/nigeria.svg';
 import './App.css';
+import ReactTooltip from 'react-tooltip';
 
 // d3
 import WorldMap from './components/WorldMap';
 import MapChart from './components/MapChart';
 
+// get data
+
 function App() {
-  const [data, setData] = useState([50,12]);
+  const [cData, setCdata] = useState({});
+  const [rData, setRdata] = useState({});
+  const [dData, setDdata] = useState({});
+  const [content, setContent] = useState("");
   // const mapRef = useRef();
 
+  async function fetchData() {
+
+    const confirmedUrl = "https://api.covid19api.com/dayone/country/nigeria/status/confirmed";
+    const recoveredUrl = "https://api.covid19api.com/dayone/country/nigeria/status/recovered";
+    const deathsUrl = "https://api.covid19api.com/dayone/country/nigeria/status/deaths";
+    fetch(confirmedUrl)
+      .then(response => response.json())
+      .then(info => setCdata(info))
+      .catch(error => console.error(error));
+
+    fetch(recoveredUrl)
+      .then(response => response.json())
+      .then(info => setRdata(info))
+      .catch(error => console.error(error));
+
+    fetch(deathsUrl)
+      .then(response => response.json())
+      .then(info => setDdata(info))
+      .catch(error => console.error(error));
+  }
+
   useEffect(() => {
-    // const map = select(mapRef.current);
-    // console.log(map);
-    // console.log(mapRef)
-  }, [data]);
+
+    fetchData();
+  }, []);
+
   
   return (
+    
     <div className="App">
       <header>
         <div className="logo">
@@ -41,7 +69,8 @@ function App() {
       <section id="map">
         {/* <img src={map}  className="nigeria-map" alt="map" /> */}
         {/* <WorldMap className="worldmap" /> */}
-        <MapChart className="worldmap" />
+        <MapChart className="worldmap" cData={cData} rData={rData} dData={dData} setTooltipContent={setContent} />
+        <ReactTooltip>{content}</ReactTooltip>
       </section>
 
      
