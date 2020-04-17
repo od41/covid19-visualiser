@@ -20,7 +20,7 @@ const colorScale = scaleLinear()
   .domain([0.29, 0.68])
   .range(["#ffedea", "#ff5233"]);
 
-const MapChart = ({cData, rData, dData, setTooltipContent}) => {
+const MapChart = ({cData, rData, dData, byStateData, setTooltipContent}) => {
 
     return (
         <ComposableMap
@@ -45,20 +45,33 @@ const MapChart = ({cData, rData, dData, setTooltipContent}) => {
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
+                      // onMouseEnter={() => {
+                      //   const {NAME_1} = geo.properties;
+                      //   const cLatest = cData[cData.length-1];
+                      //   const cCase = cLatest.Cases;
+
+                      //   const rLatest = rData[rData.length-1];
+                      //   const rCase = rLatest.Cases;
+                        
+                      //   const dLatest = dData[dData.length-1];
+                      //   const dCase = dLatest.Cases;
+                      //   setTooltipContent(`${NAME_1} \n
+                      //                       Confirmed: ${cCase} \n
+                      //                       Recovered: ${rCase} \n
+                      //                       Dead: ${dCase} `);
+                      // }}
                       onMouseEnter={() => {
                         const {NAME_1} = geo.properties;
-                        const cLatest = cData[cData.length-1];
-                        const cCase = cLatest.Cases;
 
-                        const rLatest = rData[rData.length-1];
-                        const rCase = rLatest.Cases;
                         
-                        const dLatest = dData[dData.length-1];
-                        const dCase = dLatest.Cases;
-                        setTooltipContent(`${NAME_1} \n
-                                            Confirmed: ${cCase} \n
-                                            Recovered: ${rCase} \n
-                                            Dead: ${dCase} `);
+                        if(byStateData.states !== undefined ){
+                          setTooltipContent(`${NAME_1} \n
+                                            Confirmed: ${byStateData.states[NAME_1].confirmed} \n
+                                            Recovered: ${byStateData.states[NAME_1].recovered} \n
+                                            Dead: ${byStateData.states[NAME_1].deaths}
+                                             `);
+                        }
+                        
                       }}
                       onMouseLeave={() => {
                         setTooltipContent("");

@@ -13,10 +13,13 @@ function App() {
   const [cData, setCdata] = useState({});
   const [rData, setRdata] = useState({});
   const [dData, setDdata] = useState({});
+  const [byStateData, setByStateData] = useState({});
   const [content, setContent] = useState("");
   // const mapRef = useRef();
 
   async function fetchData() {
+
+    const localStateUrl = "covid-cases-in-nigeria-by-state.json";
 
     const confirmedUrl = "https://api.covid19api.com/dayone/country/nigeria/status/confirmed";
     const recoveredUrl = "https://api.covid19api.com/dayone/country/nigeria/status/recovered";
@@ -35,6 +38,11 @@ function App() {
       .then(response => response.json())
       .then(info => setDdata(info))
       .catch(error => console.error(error));
+
+    fetch(localStateUrl)
+      .then(response => response.json())
+      .then(info => setByStateData(info))
+      .catch(error => console.error(error));
   }
 
   useEffect(() => {
@@ -44,8 +52,10 @@ function App() {
 
   
   return (
+
     
     <div className="App">
+
       <header>
         <div className="logo">
           <strong>Covid-19</strong> in Nigeria
@@ -69,8 +79,9 @@ function App() {
       <section id="map">
         {/* <img src={map}  className="nigeria-map" alt="map" /> */}
         {/* <WorldMap className="worldmap" /> */}
-        <MapChart className="worldmap" cData={cData} rData={rData} dData={dData} setTooltipContent={setContent} />
+        <MapChart className="worldmap" cData={cData} rData={rData} dData={dData} setTooltipContent={setContent} byStateData={byStateData} />
         <ReactTooltip>{content}</ReactTooltip>
+        <h5>Last Updated: {byStateData.LastUpdated} </h5>
       </section>
 
      
