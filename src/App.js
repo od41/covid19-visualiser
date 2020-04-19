@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import map from './assets/nigeria.svg';
 import './App.css';
 import ReactTooltip from 'react-tooltip';
 
 // d3
-import WorldMap from './components/WorldMap';
+// import WorldMap from './components/WorldMap';
 import MapChart from './components/MapChart';
+import NigeriaMap from './components/NigeriaMap';
 
 // get data
 
@@ -19,7 +19,7 @@ function App() {
 
   async function fetchData() {
 
-    const localStateUrl = "covid-cases-in-nigeria-by-state.json";
+    const localStateUrl = "/covid-cases-in-nigeria-by-state.json";
 
     const confirmedUrl = "https://api.covid19api.com/dayone/country/nigeria/status/confirmed";
     const recoveredUrl = "https://api.covid19api.com/dayone/country/nigeria/status/recovered";
@@ -52,9 +52,9 @@ function App() {
 
   
   return (
-
     
     <div className="App">
+
 
       <header>
         <div className="logo">
@@ -76,11 +76,14 @@ function App() {
 
       </header>
 
-      <section id="map">
+      <section id="content">
         {/* <img src={map}  className="nigeria-map" alt="map" /> */}
         {/* <WorldMap className="worldmap" /> */}
-        <MapChart className="worldmap" cData={cData} rData={rData} dData={dData} setTooltipContent={setContent} byStateData={byStateData} />
-        <ReactTooltip>{content}</ReactTooltip>
+        {/* <MapChart className="worldmap" cData={cData} rData={rData} dData={dData} setTooltipContent={setContent} byStateData={byStateData} /> */}
+        
+        <NigeriaMap cData={cData} rData={rData} dData={dData} setTooltipContent={setContent} byStateData={byStateData} />
+        <ReactTooltip>{content}</ReactTooltip> 
+        
         <h5>Last Updated: {byStateData.LastUpdated} </h5>
       </section>
 

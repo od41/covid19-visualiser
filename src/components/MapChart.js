@@ -62,6 +62,7 @@ const MapChart = ({cData, rData, dData, byStateData, setTooltipContent}) => {
                       // }}
                       onMouseEnter={() => {
                         const {NAME_1} = geo.properties;
+                        console.log(cData)
 
                         
                         if(byStateData.states !== undefined ){

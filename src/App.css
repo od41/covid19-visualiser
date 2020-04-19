@@ -75,17 +75,29 @@ header .meta {
   bottom: -10px;
 }
 
-#map {
+#content {
   /* position: relative */
 }
 
-#map .worldmap{
+#content .map{
   display: flex;
   justify-content: center;
   height: 60%;
   width: auto;
   margin: 0 auto;
   padding: 5em 0 0;
+}
+
+div.tooltip { 
+  position: absolute;     
+  text-align: center;     
+  width: 80px;       
+  padding: 4px 8px;       
+  font-size: 12px; 
+  background: rgba(204, 204, 204, 0.74);
+  color: #1a1a1a;
+  border: none;        
+  pointer-events: none;     
 }
 
 footer {
