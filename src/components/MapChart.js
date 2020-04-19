@@ -1,5 +1,5 @@
 import React, {useEffect, useState, memo} from 'react';
-import {csv, scaleLinear, geoPath,  geoAlbersUsa} from 'd3';
+import {csv, scaleLinear, geoPath} from 'd3';
 import {
     ComposableMap,
     Geographies,
@@ -24,7 +24,7 @@ const MapChart = ({cData, rData, dData, byStateData, setTooltipContent}) => {
 
     return (
         <ComposableMap
-        //   projection={geoAlbersUsa()}
+          // projection={geoMillerRaw()}
           data-tip=""
           projectionConfig={{  
               parallels: [0.8, 1],
