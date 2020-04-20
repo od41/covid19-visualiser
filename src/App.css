@@ -91,13 +91,20 @@ header .meta {
 div.tooltip { 
   position: absolute;     
   text-align: center;     
-  width: 80px;       
-  padding: 4px 8px;       
-  font-size: 12px; 
+  /* width: 80px;        */
+  padding: 6px 12px;       
+  font-size: 14px; 
   background: rgba(204, 204, 204, 0.74);
   color: #1a1a1a;
-  border: none;        
+  border: 0.5px solid #1a1a1a;        
   pointer-events: none;     
+}
+
+.tooltip h5 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #169CCD;
+  margin: 0;
 }
 
 footer {

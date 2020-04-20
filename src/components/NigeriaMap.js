@@ -5,7 +5,7 @@ import nigeria from '../nigeria.json';
 import {feature} from 'topojson-client';
 import * as d3proj from 'd3-geo-projection';
 
-const NigeriaMap = (props) => {
+const NigeriaMap = ({cData, rData, dData, byStateData, setTooltipContent}) => {
 
     const globeRotation = [-9, -9, 0];
     const scale = 3250;
@@ -51,17 +51,21 @@ const NigeriaMap = (props) => {
                                 onClick={() => handleStateClick(i)} 
                                 onMouseEnter={(evt) => {
                                     const {NAME_1} = d.properties;
-                                    console.log(evt.pageX, evt.pageY)
+                                    console.log(this)
 
                                     // let pageX=d3.event.pageX;
                                     // let pageY=d3.event.pageY;
             
                                     
-                                    if(props.byStateData.states !== undefined ){
+                                    if(byStateData.states !== undefined ){
                                         tooltip.transition()    
                                             .duration(200)    
                                             .style("opacity", .9);    
-                                        tooltip.html(NAME_1)  
+                                        tooltip.html(`<h5 class="title">${NAME_1}</h5> 
+                                                        Confirmed: ${byStateData.states[NAME_1].confirmed} </br>
+                                                        Recovered: ${byStateData.states[NAME_1].recovered} </br>
+                                                        Dead: ${byStateData.states[NAME_1].deaths}
+                                                        `)  
                                             .style("left", (evt.pageX) + "px")   
                                             .style("top", (evt.pageY - 28) + "px");
                                         
