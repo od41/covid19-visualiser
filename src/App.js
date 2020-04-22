@@ -54,7 +54,7 @@ function App() {
       // data has loaded
       setMounted(true);
     }
-  }, [byStateData]);
+  }, []);
 
   const provideLatestData = (datum) => {
       const latest = datum[datum.length-1];

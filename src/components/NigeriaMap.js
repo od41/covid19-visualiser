@@ -102,13 +102,13 @@ const NigeriaMap = ({cData, rData, dData, byStateData}) => {
                                     }
                                     
                                   }}
-                                  onMouseLeave={() => {
+                                  onMouseLeave={(evt) => {
                                       tooltip.html("")
                                     tooltip.transition()
                                         .duration(100)
                                         .style("opacity", 0);
                                   }}
-                                style={{fill:"#D02943", stroke:'#none'}}
+                                style={{fill:"#D02943"}}
                             />
                         ))
                     }

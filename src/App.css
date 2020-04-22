@@ -199,16 +199,16 @@ div.tooltip {
   /* width: 80px;        */
   padding: 6px 12px;       
   font-size: 14px; 
-  background: rgba(204, 204, 204, 0.74);
-  color: #1a1a1a;
-  border: 0.5px solid #1a1a1a;        
+  background: #E3F7FC;
+  color: #071D32;
+  border: 0.5px solid #071D32;        
   pointer-events: none;     
 }
 
 .tooltip h5 {
   font-size: 16px;
   font-weight: bold;
-  color: #169CCD;
+  color: #D02943;
   margin: 0;
 }
 

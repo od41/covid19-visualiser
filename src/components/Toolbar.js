@@ -2,33 +2,16 @@ import React, { memo, useEffect } from 'react';
 
 const Toolbar = ({cData, rData, dData, byStateData, daysElapsed}) => {
 
-    const selectLatest = () => {
-        // const cLatest = cData[cData.length-1];
-        // const cCase = cLatest.Cases;
-
-        // const rLatest = rData[rData.length-1];
-        // const rCase = rLatest.Cases;
-        
-        // const dLatest = dData[dData.length-1];
-        // const dCase = dLatest.Cases;
-
-        // console.log(cData, rData, dData)
-        // console.log(cLatest, rLatest, dLatest)
-        // return {cCase, rCase, dCase}
-        return {}
-    }
+   
 
     // let cCase;
     // let rCase;
     // let dCase;
 
     useEffect(() => {
-        const {cCase, rCase, dCase} = selectLatest();
-        // cCase = caseNumber.cCase;
-        // rCase = caseNumber.rCase;
-        // dCase = caseNumber.dCase;
+        
          
-    }, [cData])
+    })
 
     const getToday = () => {
         const months = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."]
