@@ -212,6 +212,11 @@ div.tooltip {
   margin: 0;
 }
 
+
+.affected-state:hover {
+  border: 5px solid #E3F7FC;
+}
+
 .footer {
   text-align: center;
 }
