@@ -56,6 +56,13 @@ function App() {
     }
   }, [byStateData]);
 
+  const provideLatestData = (datum) => {
+      const latest = datum[datum.length-1];
+      console.log(latest)
+      return latest.Cases;
+      // return 10;
+  }
+
   
   return (
     
@@ -70,7 +77,7 @@ function App() {
       </header>
 
       <section id="content">
-        <Toolbar lastUpdated={byStateData.LastUpdated} cData={cData} rData={rData} dData={dData} byStateData={byStateData} />
+        { cData.length && rData.length && dData.length ? <Toolbar lastUpdated={byStateData.LastUpdated} daysElapsed={cData.length} cData={provideLatestData(cData)} rData={provideLatestData(rData)} dData={provideLatestData(dData)} byStateData={byStateData} /> : "Loading data..."}
         {/* <img src={map}  className="nigeria-map" alt="map" /> */}
         {/* <WorldMap className="worldmap" /> */}
         {/* <MapChart className="worldmap" cData={cData} rData={rData} dData={dData} setTooltipContent={setContent} byStateData={byStateData} /> 

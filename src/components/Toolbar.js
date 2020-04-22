@@ -1,28 +1,29 @@
 import React, { memo, useEffect } from 'react';
 
-const Toolbar = ({cData, rData, dData, byStateData}) => {
+const Toolbar = ({cData, rData, dData, byStateData, daysElapsed}) => {
 
     const selectLatest = () => {
-        const cLatest = cData[cData.length-1];
+        // const cLatest = cData[cData.length-1];
         // const cCase = cLatest.Cases;
 
-        const rLatest = rData[rData.length-1];
+        // const rLatest = rData[rData.length-1];
         // const rCase = rLatest.Cases;
         
-        const dLatest = dData[dData.length-1];
+        // const dLatest = dData[dData.length-1];
         // const dCase = dLatest.Cases;
 
         // console.log(cData, rData, dData)
         // console.log(cLatest, rLatest, dLatest)
-        return {cCase, rCase, dCase}
+        // return {cCase, rCase, dCase}
+        return {}
     }
 
-    let cCase;
-    let rCase;
-    let dCase;
+    // let cCase;
+    // let rCase;
+    // let dCase;
 
     useEffect(() => {
-        const caseNumber = selectLatest();
+        const {cCase, rCase, dCase} = selectLatest();
         // cCase = caseNumber.cCase;
         // rCase = caseNumber.rCase;
         // dCase = caseNumber.dCase;
@@ -49,7 +50,7 @@ const Toolbar = ({cData, rData, dData, byStateData}) => {
                 </div>
                 <div>
                     <p className="toolbar-heading">Day</p>
-                    <p><span className="case-data">55</span> <br/>days since first confirmed case</p>
+                    <p><span className="case-data">{daysElapsed}</span> <br/>days since first confirmed case</p>
                 </div>
             </div>
 
@@ -61,19 +62,19 @@ const Toolbar = ({cData, rData, dData, byStateData}) => {
 {/* TODO */}
                 <div className="current">
                     <p className="label">Active</p>
-                    <p className="case-data">{/*{cCase - rCase - dCase}*/}210</p> 
+                    <p className="case-data">{cData-rData-dData}</p> 
                 </div>
                 <div className="recovered">
                     <p className="label">Recovered</p>
-                    <p className="case-data">{rCase}150</p>
+                    <p className="case-data">{rData}</p>
                 </div>
                 <div className="deaths">
                     <p className="label">Deaths</p>
-                    <p className="case-data">{dCase}10</p>
+                    <p className="case-data">{dData}</p>
                 </div>
             </div>
 
-            <p className="">Total cases: 700{cCase}</p>
+            <p className="">Total cases: {cData}</p>
             <p className="">Last Updated: {byStateData.LastUpdated}</p>
 
             <div className="btn-row">
