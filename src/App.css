@@ -215,3 +215,7 @@ div.tooltip {
 .footer {
   text-align: center;
 }
+
+.footer p {
+  line-height: 1.5;
+}

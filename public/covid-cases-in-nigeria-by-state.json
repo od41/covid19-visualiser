@@ -186,6 +186,11 @@
             "confirmed": "0",
             "recovered": "0",
             "deaths": "0"
+        },
+        "Water body": {
+          "confirmed": "0",
+          "recovered": "0",
+          "deaths": "0"
         }
     }
 }

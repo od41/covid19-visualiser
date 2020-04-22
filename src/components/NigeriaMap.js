@@ -71,16 +71,19 @@ const NigeriaMap = ({cData, rData, dData, byStateData}) => {
             
                                     
                                     if(byStateData.states !== undefined ){
-                                        tooltip.transition()    
-                                            .duration(200)    
-                                            .style("opacity", .9);    
-                                        tooltip.html(`<h5 class="title">${NAME_1}</h5> 
-                                                        Confirmed: ${byStateData.states[NAME_1].confirmed} </br>
-                                                        Recovered: ${byStateData.states[NAME_1].recovered} </br>
-                                                        Dead: ${byStateData.states[NAME_1].deaths}
-                                                        `)  
-                                            .style("left", (evt.pageX) + "px")   
-                                            .style("top", (evt.pageY - 28) + "px");
+                                        if(byStateData.states[NAME_1].confirmed != 0) {
+                                            tooltip.transition()    
+                                                .duration(200)    
+                                                .style("opacity", .9);    
+                                            tooltip.html(`<h5 class="title">${NAME_1}</h5> 
+                                                            Confirmed: ${byStateData.states[NAME_1].confirmed} </br>
+                                                            Recovered: ${byStateData.states[NAME_1].recovered} </br>
+                                                            Dead: ${byStateData.states[NAME_1].deaths}
+                                                            `)  
+                                                .style("left", (evt.pageX) + "px")   
+                                                .style("top", (evt.pageY - 28) + "px");
+                                        }
+                                        
                                         
                                     }
 
@@ -94,7 +97,7 @@ const NigeriaMap = ({cData, rData, dData, byStateData}) => {
                                         .style("opacity", 0);
 
                                   }}
-                                  style={{fill:"#b0b0b0", stroke:'#808080', strokeWidth:'0px'}}
+                                  style={{fill:"white", stroke:'#E3F7FC', strokeWidth:'0.5px'}}
                             />
                         ))
                     }

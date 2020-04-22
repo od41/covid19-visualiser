@@ -30,6 +30,19 @@ const Toolbar = ({cData, rData, dData, byStateData, daysElapsed}) => {
          
     }, [cData])
 
+    const getToday = () => {
+        const months = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."]
+        let today = new Date();
+        let date = {
+            year: today.getFullYear(),
+            month: months[today.getMonth()], 
+            day: today.getDate()
+        };
+        // let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        
+        return date;
+    }
+
     // TODO
     const handleRefresh = () => {
         window.alert("Refreshing!")
@@ -46,7 +59,9 @@ const Toolbar = ({cData, rData, dData, byStateData, daysElapsed}) => {
                 <div>
                     <p className="toolbar-heading">Today</p>
 
-                    <p><span className="case-data">22 Apr.</span><br/> 2020</p>
+                <p>
+                    <span className="case-data">{getToday().day + " " + getToday().month}</span>
+                    <br/> {getToday().year}</p>
                 </div>
                 <div>
                     <p className="toolbar-heading">Day</p>
@@ -85,8 +100,8 @@ const Toolbar = ({cData, rData, dData, byStateData, daysElapsed}) => {
             <hr />
 
             <div className="footer">
-                <p>Data source <a href="#">NCDC</a>.</p>
-                <p>Made by <a href="#">Odafe</a></p>
+                <p>Data by state breakdown sourced from the <a href="https://covid19.ncdc.gov.ng/">Nigerian CDC</a> & aggregate data from <a href="https://github.com/CSSEGISandData/COVID-19">John Hopkins CSSE</a> served via <a href="https://covid19api.com/">Covid19api</a>.</p>
+                <p>Made by <a href="https://odafe41.com">Odafe</a></p>
             </div>
         </div>
     ) 

@@ -58,7 +58,6 @@ function App() {
 
   const provideLatestData = (datum) => {
       const latest = datum[datum.length-1];
-      console.log(latest)
       return latest.Cases;
       // return 10;
   }
