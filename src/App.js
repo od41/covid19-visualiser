@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import './App.css';
 import ReactTooltip from 'react-tooltip';
 
@@ -6,6 +6,7 @@ import ReactTooltip from 'react-tooltip';
 // import WorldMap from './components/WorldMap';
 import MapChart from './components/MapChart';
 import NigeriaMap from './components/NigeriaMap';
+import Toolbar from './components/Toolbar';
 
 // get data
 
@@ -14,8 +15,8 @@ function App() {
   const [rData, setRdata] = useState({});
   const [dData, setDdata] = useState({});
   const [byStateData, setByStateData] = useState({});
-  const [content, setContent] = useState("");
-  // const mapRef = useRef();
+  const [mounted, setMounted] = useState(false)
+  const canvas = useRef();
 
   async function fetchData() {
 
@@ -48,7 +49,12 @@ function App() {
   useEffect(() => {
 
     fetchData();
-  }, []);
+    // check if remote data has loaded
+    if(Object.getOwnPropertyNames(byStateData).length === 0) {
+      // data has loaded
+      setMounted(true);
+    }
+  }, [byStateData]);
 
   
   return (
@@ -58,41 +64,29 @@ function App() {
 
       <header>
         <div className="logo">
-          <strong>Covid-19</strong> in Nigeria
-        </div>
-
-        <nav>
-          <ul>
-            <li><button className="active">Infection spread</button></li>
-            <li><button>Current infections</button></li>
-            <li><button>Risk Assesments</button></li>
-          </ul>
-        </nav>
-
-        <div className="time">
-          <div className="meta">26 Mar 2020</div>
-          <div className="meta">12:20:23</div>
+          Nigeria's Covid-19 Stats
         </div>
 
       </header>
 
       <section id="content">
+        <Toolbar lastUpdated={byStateData.LastUpdated} cData={cData} rData={rData} dData={dData} byStateData={byStateData} />
         {/* <img src={map}  className="nigeria-map" alt="map" /> */}
         {/* <WorldMap className="worldmap" /> */}
-        {/* <MapChart className="worldmap" cData={cData} rData={rData} dData={dData} setTooltipContent={setContent} byStateData={byStateData} /> */}
-        
-        <NigeriaMap cData={cData} rData={rData} dData={dData} setTooltipContent={setContent} byStateData={byStateData} />
+        {/* <MapChart className="worldmap" cData={cData} rData={rData} dData={dData} setTooltipContent={setContent} byStateData={byStateData} /> 
         <ReactTooltip>{content}</ReactTooltip> 
+        */}
         
-        <h5>Last Updated: {byStateData.LastUpdated} </h5>
+        <div ref={canvas}>
+          {/* if map is loaded properly display, else, don't */}
+          { mounted ? <NigeriaMap cData={cData} rData={rData} dData={dData} byStateData={byStateData} /> : "Loading map..." }
+        </div>
+
       </section>
 
      
 
-      <footer>
-        <div>Data source <a href="#">NCDC</a>. | <a href="#">Stay safe</a></div>
-        <div>Made by <a href="#">Odafe</a></div>
-      </footer>
+      
     </div>
   );
 }

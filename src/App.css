@@ -1,19 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;800&display=swap');
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inconsolata', monospace;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   /* overflow: hidden; */
-  color: #7B7B7E;
+  color: #E3F7FC;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+  background: transparent linear-gradient(180deg, #000320 0%, #071D32 100%) 0% 0% no-repeat padding-box;
 }
 
 .App {
   display: flex;
   min-height: 100vh;
+  width: auto;
   flex-direction: column;
   margin: 2em 4em;
+}
+
+a {
+  color: #E3F7FC;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #169CCD;
 }
 
 header {
@@ -26,32 +42,41 @@ header {
 
 .logo {
   font-size: 1.4em;
+  font-weight: 800;
   letter-spacing: .005em;
   color: #169CCD;
 }
 
-nav ul{
+.btn-row{
   display: flex;
   flex-direction: row;
-  width: 50%;
   justify-content: center;
-  list-style: none;
 }
 
-nav ul button{
-  border: 1px solid #7B7B7E;
-  background: #fff;
+.btn{
+  border: 1px solid #E3F7FC;
+  background: none;
   padding: 8px 15px;
-  /* display: inline-block; */
   width: auto;
   white-space:nowrap;
   cursor: pointer;
+  color: #E3F7FC;
+  flex-grow: 1;
+  margin: 2em 0;
 }
 
-nav ul button:hover {
-  background: #0f7fa8;
-  color: #fff;
-  border: 1px solid #169CCD;
+.btn:hover {
+  background: #E3F7FC;
+  color: #169CCD;
+  border: 1px solid #E3F7FC;
+}
+
+hr {
+  border: 0 none;
+  border-top: 2px dashed #E3F7FC;
+  background: none;
+  height:0;
+  opacity: .2;
 }
 
 .active {
@@ -75,17 +100,97 @@ header .meta {
   bottom: -10px;
 }
 
-#content {
-  /* position: relative */
+.toolbar {
+  background: #071D32 0% 0% no-repeat padding-box;
+  min-width: 300px;
+  padding: 1em 1.5em;
+  height: max-content;
 }
 
-#content .map{
-  display: flex;
-  justify-content: center;
-  height: 60%;
-  width: auto;
-  margin: 0 auto;
-  padding: 5em 0 0;
+.date-row {
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+}
+
+.toolbar .cases {
+  display: grid;
+  grid-template-columns:  33% 33% 33%;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "label label label"
+    "current recovered deaths";
+  margin-bottom: 3em;
+}
+
+
+.toolbar-heading {
+  color: #79DCF1;
+  text-transform: uppercase;
+  font-size: .7em;
+  letter-spacing: 1.4px;
+  width: 100%;
+}
+
+.label {
+  text-transform: uppercase;
+  font-size: .7em;
+  letter-spacing: 1.4px;
+  width: 100%;
+  text-align: center;
+}
+
+.case-data{
+  text-align: center;
+  font-size: 1.8em;
+  margin: 0;
+}
+
+.toolbar-heading .label{
+  grid-area: label;
+}
+
+.current {
+  grid-area: current;
+}
+
+.recovered {
+  grid-area: recovered;
+}
+
+.deaths {
+  grid-area: deaths;
+}
+
+@media(max-width:360px) {
+  .toolbar {
+    background: #071D32 0% 0% no-repeat padding-box;
+    width: 100%;
+    padding: 5px 10px;
+    grid-area: toolbar;
+  }
+
+  #content {
+    display: grid;
+    grid-template-rows: auto 30%;
+    grid-template-areas: 
+      "map"
+      "toolbar";
+  }
+
+  #content .map{
+    grid-area: map;
+    margin: 0;
+    padding: 0;
+  }
+  
+}
+
+
+#content {
+  display: grid;
+  grid-template-columns: 30% auto;
+  margin: 2em 0;
 }
 
 div.tooltip { 
@@ -107,10 +212,6 @@ div.tooltip {
   margin: 0;
 }
 
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 8.5em 0 0;
+.footer {
+  text-align: center;
 }
