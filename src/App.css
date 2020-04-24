@@ -143,12 +143,16 @@ hr {
 }
 /* END TOOLBAR LARGE STYLING */
 
-/* BEGIN SMALL SCREEN STYLING I.E MEDIA QUERY */
+/* BEGIN LARGE SCREEN STYLING I.E MEDIA QUERY */
 
 @media(min-width:741px) {
   #content {
     margin: 2em 2em;
   }
+}
+
+.hide-on-desktop {
+  display: none;
 }
 
 /* BEGIN SMALL SCREEN STYLING I.E MEDIA QUERY */
@@ -163,6 +167,17 @@ hr {
 
 @media(max-width:360px) {
 /* set the height of the header section */
+  .hide-on-desktop {
+    display: inline-block;
+  }
+
+  .hide-on-mobile {
+    display: none;
+  }
+
+  .touch-icon {
+    height: 12px;
+  }
 
   header {
     height: 10vh;

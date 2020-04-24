@@ -3,8 +3,8 @@ import * as d3 from 'd3';
 
 import nigeria from '../nigeria.json';
 import {feature} from 'topojson-client';
-import * as d3proj from 'd3-geo-projection';
-import { scaleQuantize } from 'd3';
+// import * as d3proj from 'd3-geo-projection';
+// import { scaleQuantize } from 'd3';
 
 const NigeriaMap = ({cData, rData, dData, byStateData, dimensions}) => {
 
@@ -114,7 +114,7 @@ const NigeriaMap = ({cData, rData, dData, byStateData, dimensions}) => {
                                     const {NAME_1} = d.properties;
                                     
                                     if(byStateData.states !== undefined ){
-                                        if(byStateData.states[NAME_1].confirmed != 0) {
+                                        if(byStateData.states[NAME_1].confirmed !== 0) {
                                             tooltip.transition()    
                                                 .duration(200)    
                                                 .style("opacity", .9);    

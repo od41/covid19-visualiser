@@ -38,16 +38,21 @@ const Toolbar = ({cData, rData, dData, byStateData, daysElapsed}) => {
 
     return (
         <div className="toolbar" >
+            <div className="touch-indicator">
+                <span className="hide-on-mobile toolbar-heading">Hover cursor over map</span>
+
+                <span className="hide-on-desktop toolbar-heading"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 167.63 232.39" className="touch-icon"><path  d="M177.12,83.26a22.81,22.81,0,0,0-15.39,6,22.88,22.88,0,0,0-30.8,0,23.13,23.13,0,0,0-5.64-3.76,52.35,52.35,0,1,0-63.44,14v63.87a69.08,69.08,0,0,0,138.16,0V106.15A22.92,22.92,0,0,0,177.12,83.26ZM47.38,52.37a37.37,37.37,0,1,1,60.27,29.51V52.37a22.9,22.9,0,1,0-45.8,0V81.88A37.5,37.5,0,0,1,47.38,52.37ZM185,163.32a54.08,54.08,0,0,1-108.16,0V94.89q0-.37,0-.75V52.37a7.9,7.9,0,1,1,15.8,0V122.6a7.5,7.5,0,0,0,15,0V106.15a7.89,7.89,0,0,1,15.78,0V122.6a7.5,7.5,0,0,0,15,0V106.15a7.9,7.9,0,0,1,15.8,0V122.6a7.5,7.5,0,0,0,15,0V106.15a7.89,7.89,0,1,1,15.78,0v57.17Z" transform="translate(-32.38)" style={{fill:"#e3f7fc"}}/></svg> Touch the map</span>
+            </div>
             <div className="date-row">
                 <div>
-                    <p className="toolbar-heading">Today</p>
+                    <p className="toolbar-heading">Today is</p>
 
                 <p>
                     <span className="case-data">{getToday().day + " " + getToday().month}</span>
                     <br/> {getToday().year}</p>
                 </div>
                 <div>
-                    <p className="toolbar-heading">Day</p>
+                    <p className="toolbar-heading">Duration</p>
                     <p><span className="case-data">{daysElapsed}</span> <br/>days since first confirmed case</p>
                 </div>
             </div>
