@@ -1,14 +1,124 @@
 {
-    "LastUpdated": ["18:00, 16 April 2020"],
+    "LastUpdated": ["23 April 2020"],
     "states": {
+        "Lagos": {
+          "confirmed": "582",
+          "recovered": "106",
+          "deaths": "16"
+        },
+        "FCT - Abuja": {
+          "confirmed": "133",
+          "recovered": "35",
+          "deaths": "3"
+        },
+        "Kano": {
+          "confirmed": "73",
+          "recovered": "0",
+          "deaths": "1"
+        },
+        "Ogun": {
+          "confirmed": "29",
+          "recovered": "5",
+          "deaths": "1"
+        },
+        "Katsina": {
+          "confirmed": "21",
+          "recovered": "0",
+          "deaths": "1"
+        },
+        "Osun": {
+          "confirmed": "20",
+          "recovered": "18",
+          "deaths": "0"
+        },
+        "Oyo": {
+          "confirmed": "17",
+          "recovered": "5",
+          "deaths": "1"
+        },
+        "Edo": {
+          "confirmed": "17",
+          "recovered": "7",
+          "deaths": "2"
+        },
+        "Borno": {
+          "confirmed": "12",
+          "recovered": "0",
+          "deaths": "2"
+        },
+        "Kwara": {
+          "confirmed": "11",
+          "recovered": "2",
+          "deaths": "0"
+      },
+        "Akwa Ibom": {
+          "confirmed": "11",
+          "recovered": "3",
+          "deaths": "1"
+        },
+        "Kaduna": {
+          "confirmed": "9",
+          "recovered": "4",
+          "deaths": "0"
+        },
+        "Gombe": {
+          "confirmed": "9",
+          "recovered": "0",
+          "deaths": "0"
+        },
+        "Bauchi": {
+          "confirmed": "8",
+          "recovered": "5",
+          "deaths": "0"
+        },
+        "Delta": {
+          "confirmed": "6",
+          "recovered": "0",
+          "deaths": "1"
+        },
+        "Ekiti": {
+          "confirmed": "4",
+          "recovered": "2",
+          "deaths": "1"
+        },
+        "Ondo": {
+          "confirmed": "3",
+          "recovered": "2",
+          "deaths": "1"
+       },
         "Abia" : {
-            "confirmed": "0",
+            "confirmed": "2",
             "recovered": "0",
             "deaths": "0"
         },
+        "Enugu": {
+          "confirmed": "2",
+          "recovered": "2",
+          "deaths": "0"
+        },
+        "Rivers": {
+          "confirmed": "3",
+          "recovered": "2",
+          "deaths": "1"
+        },
+        "Niger": {
+          "confirmed": "2",
+          "recovered": "0",
+          "deaths": "0"
+        },
+        "Jigawa": {
+          "confirmed": "2",
+          "recovered": "0",
+          "deaths": "0"
+        },
+        "Benue": {
+          "confirmed": "1",
+          "recovered": "0",
+          "deaths": "0"
+        },
 
         "Adamawa": {
-            "confirmed": "0",
+            "confirmed": "1",
             "recovered": "0",
             "deaths": "0"
         },
@@ -17,27 +127,17 @@
             "recovered": "0",
             "deaths": "0"
         },
-          "Akwa Ibom": {
-            "confirmed": "6",
-            "recovered": "3",
-            "deaths": "0"
+        "Sokoto": {
+          "confirmed": "1",
+          "recovered": "0",
+          "deaths": "0"
         },
-          "Bauchi": {
-            "confirmed": "6",
-            "recovered": "0",
-            "deaths": "0"
+        "Plateau": {
+          "confirmed": "1",
+          "recovered": "0",
+          "deaths": "0"
         },
           "Bayelsa": {
-            "confirmed": "0",
-            "recovered": "0",
-            "deaths": "0"
-        },
-          "Benue": {
-            "confirmed": "1",
-            "recovered": "0",
-            "deaths": "0"
-        },
-          "Borno": {
             "confirmed": "0",
             "recovered": "0",
             "deaths": "0"
@@ -47,37 +147,7 @@
             "recovered": "0",
             "deaths": "0"
         },
-          "Delta": {
-            "confirmed": "4",
-            "recovered": "0",
-            "deaths": "0"
-        },
           "Ebonyi": {
-            "confirmed": "0",
-            "recovered": "0",
-            "deaths": "0"
-        },
-          "Enugu": {
-            "confirmed": "2",
-            "recovered": "2",
-            "deaths": "0"
-        },
-          "Edo": {
-            "confirmed": "15",
-            "recovered": "5",
-            "deaths": "1"
-        },
-          "Ekiti": {
-            "confirmed": "2",
-            "recovered": "1",
-            "deaths": "0"
-        },
-          "FCT - Abuja": {
-            "confirmed": "67",
-            "recovered": "23",
-            "deaths": "2"
-        },
-          "Gombe": {
             "confirmed": "0",
             "recovered": "0",
             "deaths": "0"
@@ -86,26 +156,6 @@
             "confirmed": "0",
             "recovered": "0",
             "deaths": "0"
-        },
-          "Jigawa": {
-            "confirmed": "0",
-            "recovered": "0",
-            "deaths": "0"
-        },
-          "Kaduna": {
-            "confirmed": "6",
-            "recovered": "0",
-            "deaths": "0"
-        },
-          "Kano": {
-            "confirmed": "21",
-            "recovered": "0",
-            "deaths": "1"
-        },
-          "Katsina": {
-            "confirmed": "7",
-            "recovered": "0",
-            "deaths": "1"
         },
           "Kebbi": {
             "confirmed": "0",
@@ -117,57 +167,7 @@
             "recovered": "0",
             "deaths": "0"
         },
-          "Kwara": {
-            "confirmed": "4",
-            "recovered": "0",
-            "deaths": "0"
-        },
-          "Lagos": {
-            "confirmed": "251",
-            "recovered": "90",
-            "deaths": "7"
-        },
           "Nasarawa": {
-            "confirmed": "0",
-            "recovered": "0",
-            "deaths": "0"
-        },
-          "Niger": {
-            "confirmed": "2",
-            "recovered": "0",
-            "deaths": "0"
-        },
-          "Ogun": {
-            "confirmed": "9",
-            "recovered": "5",
-            "deaths": "0"
-        },
-          "Ondo": {
-            "confirmed": "3",
-            "recovered": "0",
-            "deaths": "0"
-        },
-          "Osun": {
-            "confirmed": "20",
-            "recovered": "17",
-            "deaths": "0"
-        },
-          "Oyo": {
-            "confirmed": "13",
-            "recovered": "5",
-            "deaths": "0"
-        },
-          "Plateau": {
-            "confirmed": "0",
-            "recovered": "0",
-            "deaths": "0"
-        },
-          "Rivers": {
-            "confirmed": "2",
-            "recovered": "1",
-            "deaths": "0"
-        },
-          "Sokoto": {
             "confirmed": "0",
             "recovered": "0",
             "deaths": "0"
