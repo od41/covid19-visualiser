@@ -4,13 +4,18 @@ import * as d3 from 'd3';
 import nigeria from '../nigeria.json';
 import {feature} from 'topojson-client';
 import * as d3proj from 'd3-geo-projection';
+import { scaleQuantize } from 'd3';
 
-const NigeriaMap = ({cData, rData, dData, byStateData}) => {
+const NigeriaMap = ({cData, rData, dData, byStateData, dimensions}) => {
 
-    const globeRotation = [-9, -9, 0];
-    const scale = 3250;
+    const globeRotation = {
+        small: [-8, -9, 0],
+        mid: [-8, -13, 0],
+        large: [-9, -13, 0]};
+    const scale = {small: 1300, mid: 2600, large: 3250};
     const [geographies, setGeographies] = useState([])
     const [affectedStates, setAffectedStates] = useState([])
+    const [screenSize, setScreenSize] = useState('')
 
 
        //component neets to mount for Globe to render properly, handled by mounted state
@@ -24,17 +29,42 @@ const NigeriaMap = ({cData, rData, dData, byStateData}) => {
         setGeographies(feature(nigeria, nigeria.objects.NGA_adm1).features);
         
         // check geographies for only affected states that are in the byStateData array
-        setAffectedStates(checkForAffectedStates())
+        setAffectedStates(checkForAffectedStates());
+
+        console.log(dimensions)
 
     }, [byStateData])
+
+
+    useEffect(() => {
+        // hook monitors the canvas element and updates on changes
+        
+    
+        setScreenSize(responsiveNormaliser());
+      }, [dimensions]);
+
+    const responsiveNormaliser = () => {
+        let size = '';
+        // breakpoint for small screen
+        if (dimensions.width < 361) {
+            size = 'small'
+        } else if ( dimensions.width < 768) {
+            size = 'mid'
+        } else {
+            size = 'large'
+        }
+        console.log(size)
+        return size; 
+        // returns a string with the size of the screen at that time
+    }
 
 
  
     const getPath = (datum) => {
         const projection = d3.geoOrthographic()
-            .translate([1080/2, 720/2])
-            .scale(scale)
-            .rotate(globeRotation);
+            .translate([dimensions.width/2, dimensions.height/2])
+            .scale(scale[screenSize])
+            .rotate(globeRotation[screenSize]);
 
             let path = d3.geoPath()
                 .projection(projection)
@@ -69,10 +99,10 @@ const NigeriaMap = ({cData, rData, dData, byStateData}) => {
 
 
     return (
-        <div>
+        <>
 
             {/* <svg width="1080" height="720" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet"> */}
-            <svg width="1080" height="720">
+            <svg >
             <g className="affected-states">
                     {
                         // I want to return only those states that have cases in the covid-cases object
@@ -127,7 +157,7 @@ const NigeriaMap = ({cData, rData, dData, byStateData}) => {
                     }
                 </g>
             </svg>
-        </div>
+        </>
     )
 
 }

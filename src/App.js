@@ -16,6 +16,7 @@ function App() {
   const [dData, setDdata] = useState({});
   const [byStateData, setByStateData] = useState({});
   const [mounted, setMounted] = useState(false)
+  const [dimensions, setDimensions] = useState({})
   const canvas = useRef();
 
   async function fetchData() {
@@ -54,7 +55,23 @@ function App() {
       // data has loaded
       setMounted(true);
     }
+
   }, []);
+
+  useEffect(() => {
+    // hook monitors the canvas element and updates on changes
+    console.log(canvas.current)
+    console.log(canvas.current.offsetWidth, canvas.current.offsetHeight);
+    // setDimensions({
+    //   width: canvas.current.getBoundingClientRect().width, 
+    //   height: canvas.current.getBoundingClientRect().height
+    // });
+
+    setDimensions({
+      width: canvas.current.offsetWidth, 
+      height: canvas.current.offsetHeight
+    });
+  }, [canvas.current]);
 
   const provideLatestData = (datum) => {
       const latest = datum[datum.length-1];
@@ -83,9 +100,9 @@ function App() {
         <ReactTooltip>{content}</ReactTooltip> 
         */}
         
-        <div ref={canvas}>
+        <div ref={canvas} className="canvas">
           {/* if map is loaded properly display, else, don't */}
-          { mounted ? <NigeriaMap cData={cData} rData={rData} dData={dData} byStateData={byStateData} /> : "Loading map..." }
+          { mounted ? <NigeriaMap cData={cData} rData={rData} dData={dData} byStateData={byStateData} dimensions={dimensions}/> : "Loading map..." }
         </div>
 
       </section>
