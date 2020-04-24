@@ -33,7 +33,7 @@ const Toolbar = ({cData, rData, dData, byStateData, daysElapsed}) => {
 
     // TODO
     const handleIsItSafe = () => {
-        window.alert("Is it really safe?")
+        window.alert("Short answer, No.")
     }
 
     return (
@@ -76,8 +76,8 @@ const Toolbar = ({cData, rData, dData, byStateData, daysElapsed}) => {
             <p className="">Last Updated: {byStateData.LastUpdated}</p>
 
             <div className="btn-row">
-                <button onClick={handleRefresh} className="btn">Refresh</button>
-                <button onClick={handleIsItSafe} className="btn">Is it safe?</button>
+                {/* <button onClick={handleRefresh} className="btn">Refresh</button> */}
+                <button onClick={handleIsItSafe} className="btn">Is it safe to go out?</button>
             </div>
 
             <hr />

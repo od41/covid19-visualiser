@@ -187,6 +187,7 @@ hr {
       "canvas"
       "toolbar";
     height: 90vh;
+    margin: 0px auto;
   }
 
   .toolbar {
