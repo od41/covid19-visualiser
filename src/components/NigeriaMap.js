@@ -31,8 +31,6 @@ const NigeriaMap = ({cData, rData, dData, byStateData, dimensions}) => {
         // check geographies for only affected states that are in the byStateData array
         setAffectedStates(checkForAffectedStates());
 
-        console.log(dimensions)
-
     }, [byStateData])
 
 
@@ -53,7 +51,6 @@ const NigeriaMap = ({cData, rData, dData, byStateData, dimensions}) => {
         } else {
             size = 'large'
         }
-        console.log(size)
         return size; 
         // returns a string with the size of the screen at that time
     }

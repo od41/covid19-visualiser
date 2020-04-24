@@ -60,12 +60,6 @@ function App() {
 
   useEffect(() => {
     // hook monitors the canvas element and updates on changes
-    console.log(canvas.current)
-    console.log(canvas.current.offsetWidth, canvas.current.offsetHeight);
-    // setDimensions({
-    //   width: canvas.current.getBoundingClientRect().width, 
-    //   height: canvas.current.getBoundingClientRect().height
-    // });
 
     setDimensions({
       width: canvas.current.offsetWidth, 
