@@ -74,12 +74,26 @@ const NigeriaMap = ({cData, rData, dData, byStateData, dimensions}) => {
         // return array with states that have confirmed cases greater than 1
         let affectedStates = [];
 
-        if(byStateData.states !== undefined ){
+        if(byStateData.data !== undefined ){
             affectedStates = geographies.map((data) => {
-                if( byStateData.states[data.properties.NAME_1].confirmed > 0){
-                    // only returns data with state confirmed cases greater than 0
+                // solution 1 - use find() to locate the each state's object and then check if confirmed is greater than 1
+                let queryState;
+
+                // compare 
+                queryState = byStateData.data.find(el => (el !== null) ? el.state.substring(0,3) === data.properties.NAME_1.toLowerCase().substring(0,3) : el = 1 )
+
+                // since all the data from the byStateData is for states with reported cases, 
+                // it's safe to return those cases that pass the queryState not null test
+                if (queryState !== undefined) {
                     return data;
                 } else {return}
+
+                // solution 2 - compare the state strings of geo and stateData and check if confirmed of that particular state is greater than 0
+                // if( byStateData.data.state === data.properties.NAME_1 > 0){
+                //     // only returns data with state confirmed cases greater than 0
+                //     return data;
+                // } else {return}
+
             })
         }
 
@@ -110,31 +124,31 @@ const NigeriaMap = ({cData, rData, dData, byStateData, dimensions}) => {
                                 d={getPath(d)}
                                 className="affected-state"
                                 onClick={() => handleStateClick(i)} 
-                                onMouseEnter={(evt) => {
-                                    const {NAME_1} = d.properties;
+                                // onMouseEnter={(evt) => {
+                                //     const {NAME_1} = d.properties;
                                     
-                                    if(byStateData.states !== undefined ){
-                                        if(byStateData.states[NAME_1].confirmed !== 0) {
-                                            tooltip.transition()    
-                                                .duration(200)    
-                                                .style("opacity", .9);    
-                                            tooltip.html(`<h5 class="title">${NAME_1}</h5> 
-                                                            Confirmed: ${byStateData.states[NAME_1].confirmed} </br>
-                                                            Recovered: ${byStateData.states[NAME_1].recovered} </br>
-                                                            Dead: ${byStateData.states[NAME_1].deaths}
-                                                            `)  
-                                                .style("left", (evt.pageX) + "px")   
-                                                .style("top", (evt.pageY - 28) + "px");
-                                        }
-                                    }
+                                //     if(byStateData.data !== undefined ){
+                                //         if(byStateData.data[NAME_1].confirmed !== 0) {
+                                //             tooltip.transition()    
+                                //                 .duration(200)    
+                                //                 .style("opacity", .9);    
+                                //             tooltip.html(`<h5 class="title">${NAME_1}</h5> 
+                                //                             Confirmed: ${byStateData.data[NAME_1].confirmed} </br>
+                                //                             Recovered: ${byStateData.data[NAME_1].recovered} </br>
+                                //                             Dead: ${byStateData.data[NAME_1].deaths}
+                                //                             `)  
+                                //                 .style("left", (evt.pageX) + "px")   
+                                //                 .style("top", (evt.pageY - 28) + "px");
+                                //         }
+                                //     }
                                     
-                                  }}
-                                  onMouseLeave={(evt) => {
-                                      tooltip.html("")
-                                    tooltip.transition()
-                                        .duration(100)
-                                        .style("opacity", 0);
-                                  }}
+                                //   }}
+                                //   onMouseLeave={(evt) => {
+                                //       tooltip.html("")
+                                //     tooltip.transition()
+                                //         .duration(100)
+                                //         .style("opacity", 0);
+                                //   }}
                                 style={{fill:"#D02943"}}
                             />
                         ))

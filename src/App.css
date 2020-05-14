@@ -304,3 +304,29 @@ div.tooltip {
 .footer p {
   line-height: 1.5;
 }
+
+/*  */
+svg {
+  display: block;
+  width: 100%;
+  min-height: 600px;
+  height: 100%;
+}
+
+svg .state {
+  stroke: #E3F7FC;
+  stroke-width: .5px;
+  cursor: pointer;
+}
+
+svg .state:hover {
+  stroke: #58c7df;
+  stroke-width: 2px;
+  cursor: pointer;
+}
+
+svg .label {
+  font-size: 1.2em;
+  color: white;
+  z-index: 1000;
+}
