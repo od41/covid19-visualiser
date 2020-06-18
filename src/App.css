@@ -325,8 +325,12 @@ svg .state:hover {
   cursor: pointer;
 }
 
-svg .label {
-  font-size: 1.2em;
-  color: white;
-  z-index: 1000;
+svg .label {  
+  /* width: 80px;        */
+  padding: 6px 12px;       
+  font-size: 14px; 
+  background: #E3F7FC;
+  color: #071D32;
+  border: 0.5px solid #071D32;        
+  pointer-events: none;     
 }
