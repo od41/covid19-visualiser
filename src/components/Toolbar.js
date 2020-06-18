@@ -78,7 +78,7 @@ const Toolbar = ({cData, rData, dData, byStateData, daysElapsed}) => {
             </div>
 
             <p className="">Total cases: {cData}</p>
-            <p className="">Last Updated: {byStateData.LastUpdated}</p>
+            {/* <p className="">Last Updated: {byStateData.LastUpdated}</p> */}
 
             <div className="btn-row">
                 {/* <button onClick={handleRefresh} className="btn">Refresh</button> */}

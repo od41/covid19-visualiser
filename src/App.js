@@ -5,7 +5,7 @@ import ReactTooltip from 'react-tooltip';
 // d3
 // import WorldMap from './components/WorldMap';
 import MapChart from './components/MapChart';
-import NigeriaMap from './components/NigeriaMap';
+import NigeriaMapTwo from './components/NigeriaMapTwo';
 import Toolbar from './components/Toolbar';
 
 // get data
@@ -21,11 +21,14 @@ function App() {
 
   async function fetchData() {
 
-    const localStateUrl = "/covid-cases-in-nigeria-by-state.json";
+    // URL endpoints data for each state
+    const localStateUrl = "https://covid19ngr.herokuapp.com/api/states/";
 
+    // URLs for total data for Nigeria
     const confirmedUrl = "https://api.covid19api.com/dayone/country/nigeria/status/confirmed";
     const recoveredUrl = "https://api.covid19api.com/dayone/country/nigeria/status/recovered";
     const deathsUrl = "https://api.covid19api.com/dayone/country/nigeria/status/deaths";
+    
     fetch(confirmedUrl)
       .then(response => response.json())
       .then(info => setCdata(info))
@@ -96,7 +99,8 @@ function App() {
         
         <div ref={canvas} className="canvas">
           {/* if map is loaded properly display, else, don't */}
-          { mounted ? <NigeriaMap cData={cData} rData={rData} dData={dData} byStateData={byStateData} dimensions={dimensions}/> : "Loading map..." }
+          {/* { mounted ? <NigeriaMap cData={cData} rData={rData} dData={dData} byStateData={byStateData} dimensions={dimensions}/> : "Loading map..." } */}
+          { mounted ? <NigeriaMapTwo byStateData={byStateData} /> : "Loading map..." }
         </div>
 
       </section>
