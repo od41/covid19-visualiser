@@ -55,8 +55,8 @@ const NigeriaMapTwo = ({ byStateData }) => {
 
             // colour function 2B
             colorScale = d3
-                .scaleLinear([1, 10], ['#fee5d9', '#fcae91', '#fb6a4a', '#cb181d'])
-            // .domain([minProp, maxProp])
+                .scaleLinear([1, 3], ['#fed053', '#f5b301', '#3b3f46'])
+            .domain([2, 5000])
             // .range(['#fee5d9', '#fcae91', '#fb6a4a', '#cb181d']);
 
             // colour function 3
