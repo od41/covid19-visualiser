@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Demo [COVID19 in Nigeria Tracker](https://covid19-visualiser.od41.vercel.app/).
 
 # COVID19 Visualiser
 
@@ -12,6 +12,6 @@ Data can be abstract, and if not presented visually can make people unable to gr
 
 You can view the current state of the COVID-19 spread (updated daily) with `Current Infections`. Also, view the infections through time, from day 1 to current day with `Infection Spread`.
 
-## Data Source
+## Data Sources
 
 This project uses the free[covid19api.com](https://covid19api.com/) developed by Kyle Redelinghuys, which sources data from the [John Hopkins CSSE Data Repository](https://github.com/CSSEGISandData/COVID-19).
