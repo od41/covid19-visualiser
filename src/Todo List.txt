@@ -1,0 +1,5 @@
+Todo List
+
+1. Have more visual appealing colours
+2. Show names and total number of cases on each state
+3. Show
